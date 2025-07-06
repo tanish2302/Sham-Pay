@@ -3,7 +3,7 @@ const Transaction = require("../models/transactionModel");
 const authMiddleware = require("../middlewares/authMiddleware");
 const User = require("../models/userModel");
 
-const stripe = require("stripe")(process.env.stripe_key);
+const stripe = require("stripe")(process.env.STRIPE_KEY);
 const { v4: uuidv4 } = require("uuid");
 
 //transfer money from one account to another
