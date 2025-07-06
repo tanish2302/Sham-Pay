@@ -1,0 +1,47 @@
+:root {
+    --primary: #4a8c8c;
+    --secondary: #fab062;
+    --tertiary :#011f26 ;
+}
+
+.bg-primary {
+    background-color: var(--primary) !important;
+}
+
+.bg-secondary {
+    background-color: var(--secondary) !important;
+}
+
+.bg-tertiary{
+    background-color: var(--tertiary) !important;
+}
+
+.text-primary {
+    color: var(--primary) !important;
+}
+
+.text-secondary {
+    color: var(--secondary) !important;
+}
+
+.text-black {
+    color: black !important;
+}
+
+.text-white {
+    color: white !important;
+}
+
+.success-bg {
+    background-color: #107010 !important;
+    color: white !important;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.error-bg {
+    background-color: #d3391b !important;
+    color: white !important;
+    padding: 10px;
+    border-radius: 3px;
+}

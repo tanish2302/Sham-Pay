@@ -1,0 +1,49 @@
+#######################################################################
+#  STAGE 1 : client-build  (React / CRA)                             #
+#######################################################################
+FROM node:20-alpine AS client-build
+WORKDIR /client
+
+# 1. Copy dependency manifests
+COPY client/package.json client/package-lock.json ./
+
+# 2. Install deps and ensure CLI bins exist
+RUN npm config set bin-links true \
+ && npm ci 
+
+
+# 3. Copy the rest of the React source and build
+COPY client/ .
+RUN npm run build        
+
+#######################################################################
+#  STAGE 2 : server-build  (Express API)                             #
+#######################################################################
+FROM node:20-alpine AS server-build
+WORKDIR /app
+
+# 1. Copy API dependency manifests
+COPY package.json package-lock.json ./
+
+# 2. Install server deps (production only)
+RUN npm ci --omit=dev
+
+# 3. Copy server source
+COPY server/ ./server/
+COPY .env ./
+
+# 4. Bring in the compiled React static files from client-build
+COPY --from=client-build /client/build ./server/public
+
+#######################################################################
+#  STAGE 3 : runtime  (tiny production image)                        #
+#######################################################################
+FROM node:20-alpine
+WORKDIR /app
+
+# Copy prepared application from server-build stage
+COPY --from=server-build /app /app
+
+ENV NODE_ENV=production
+EXPOSE 5000
+CMD ["npm", "start"]

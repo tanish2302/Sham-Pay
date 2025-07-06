@@ -1,0 +1,13 @@
+# Ignore host deps
+node_modules
+client/node_modules
+
+# Ignore build output you might accidentally create locally
+client/build
+server/public
+
+# Misc
+.git
+*.log
+Dockerfile*
+.dockerignore
