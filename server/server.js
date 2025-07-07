@@ -19,16 +19,18 @@ app.get("/", (_, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
-const path = require("path");
-__dirname = path.resolve();
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "server", "public")));
+// THIS IN NOT NEEDED NOW AS ITS NOW DEPLOYED
+// const path = require("path");
+// __dirname = path.resolve();
 
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "server", "public", "index.html"));
-  });
-}
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static(path.join(__dirname, "server", "public")));
+
+//   app.get("*", (req, res) => {
+//     res.sendFile(path.join(__dirname, "server", "public", "index.html"));
+//   });
+// }
 
 app.listen(PORT, "0.0.0.0", () => {
     console.log(`Server started on PORT ${PORT}`);

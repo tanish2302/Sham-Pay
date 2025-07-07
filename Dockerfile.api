@@ -33,7 +33,8 @@ COPY server/ ./server/
 COPY .env ./
 
 # 4. Bring in the compiled React static files from client-build
-COPY --from=client-build /client/build ./server/public
+# NO NEED OF THIS NOW TOO
+# COPY --from=client-build /client/build ./server/public
 
 #######################################################################
 #  STAGE 3 : runtime  (tiny production image)                        #
