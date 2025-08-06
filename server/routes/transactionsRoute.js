@@ -84,7 +84,6 @@ router.post(
 );
 
 //deposit funds
-
 router.post("/deposit-funds", authMiddleware, async (req, res) => {
     try {
         const { token, amount } = req.body;
