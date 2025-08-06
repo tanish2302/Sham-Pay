@@ -32,7 +32,7 @@ router.post("/send-request", authMiddleware, async (req, res) => {
     const { receiver, amount, description } = req.body;
 
     const request = new Request({
-      sender: req.body.userId,
+      sender: req.userId,
       receiver,
       amount,
       description,
