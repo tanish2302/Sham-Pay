@@ -84,3 +84,22 @@
 .p-3{
     padding: 30px;
 }
+
+/* Add this media query at the end of the file */
+@media screen and (max-width: 768px) {
+    .w-50 {
+        width: 100%; /* Make 50% width elements full-width on mobile */
+    }
+
+    .w-400 {
+        width: 100%; /* Make 400px width elements full-width on mobile */
+    }
+
+    .flex-col-mobile {
+        flex-direction: column;
+    }
+    
+    .gap-1, .gap-2, .gap-3 {
+      gap: 5px; /* Reduce gap on mobile for tighter spacing */
+    }
+}

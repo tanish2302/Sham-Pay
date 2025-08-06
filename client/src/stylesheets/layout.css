@@ -58,3 +58,26 @@
 .content{
     padding-top: 15px;
 }
+
+/* Add this media query at the end of the file */
+@media screen and (max-width: 768px) {
+    .layout {
+        flex-direction: column; /* Stack sidebar and body vertically */
+        padding: 10px;
+    }
+
+    .sidebar {
+        height: auto; /* Allow sidebar to resize */
+        width: 100%;
+        padding: 10px;
+    }
+    
+    .menu {
+        flex-direction: row; /* Make menu items horizontal */
+        justify-content: space-around;
+    }
+
+    .header {
+        padding: 10px;
+    }
+}
